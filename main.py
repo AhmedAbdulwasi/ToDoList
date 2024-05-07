@@ -7,7 +7,10 @@ def ReturnScreen():
   print("Type 'y' to return.")
   input2 = input()
   if input2 == 'y':
-    os.system('clear')
+    if os.name == 'nt':  # Is operating system is Windows?
+      os.system('cls')
+    else:
+      os.system('clear')
     Welcome_Page()
   else:
     print('Wrong input!')
@@ -16,6 +19,7 @@ def ReturnScreen():
       ReturnScreen()
     else:
       ReturnScreen()
+
     
 
 # Next I'm thinking of what features should I add to this "to do list"
@@ -40,23 +44,23 @@ def DeleteTask():
   return ReturnScreen()
 
 # THERE MAY BE SOME ISSUES WITH LOADING AND SAVING A FILE. I'll try to fix it
-def LoadFile(file_path):
+# Ignore comment above. I fixed it.
+def LoadFile(file_path, tasks):
   with open(file_path, 'r') as file:
-    tasks = file.readlines()
-  return [task.strip() for task in tasks]
+    tasks.clear()
+    tasks.extend(line.strip() for line in file)
 
 # THERE MAY BE SOME ISSUES WITH LOADING AND SAVING A FILE. I'll try to fix it
+# Ignore comment above. I fixed it
 def SaveFile(file_path, tasks):
   with open(file_path, 'w') as file:
-        file.write('\n'.join(tasks))
-    
+    file.write('\n'.join(tasks))
 
 def Showtask():
   if not tasks:
     return 'There is no tasks.'
   else:
-    return tasks
-  return ReturnScreen()
+    return '\n'.join(tasks)
 
 def CreateTask():
   HowMany = int(input('How many tasks do you want to type in? '))
@@ -77,28 +81,37 @@ def Welcome_Page():
   elif user_input == 'sh':
     task_show = Showtask()
     if task_show:
-          print("Tasks:")
-          numb = 1
-          for task in task_show:
-              print(str(numb) +") " + task)
-              numb += 1
+      print("Tasks:")
+      for idx, task in enumerate(tasks, start=1):
+        print(f"{idx}) {task}")
     else:
-        print("No tasks to show.")
+      print(task_show)
     ReturnScreen()
   elif user_input == 'l':
     file_path = input('Enter file path: ')
-    tasks = LoadFile(file_path)
-    print("Task Loaded!")
-    ReturnScreen()
+    try:
+        LoadFile(file_path, tasks)
+        print("Tasks loaded!")
+        ReturnScreen()
+    except FileNotFoundError:
+        print(f"File not found: {file_path}")
+        ReturnScreen()
   elif user_input == 's':
     file_path = input('Enter file path: ')
+    if os.path.exists(file_path):
+      confirm = input(f"File {file_path} already exists. Overwrite? (y/n): ")
+      if confirm.lower() != 'y':
+        print("Save cancelled.")
+        ReturnScreen()
+        return
     SaveFile(file_path, tasks)
     print("Tasks saved!")
     ReturnScreen()
   elif user_input == 'de':
     DeleteTask()
   else:
-        print("Invalid input.")
+    print("Invalid input.")
+    ReturnScreen()
 
 Welcome_Page()
   
