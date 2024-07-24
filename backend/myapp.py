@@ -2,7 +2,6 @@ from flask import Flask,jsonify,request
 from flask_cors import CORS
 from config import config_dict
 from models import Tasks,db
-import requests
 from flask_migrate import Migrate
 from datetime import datetime
 
