@@ -1,0 +1,91 @@
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.tasksform label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+.tasksform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 400px;
+  padding: 1rem;
+  font-size: 1em;
+}
+
+.taskslist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.taskslist h2 {
+  margin-bottom: 1rem;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+}
+
+
+
+@media (max-width: 1000px) {
+  .taskslist {
+    font-size: 0.6em;
+  }
+
+  .maintitle {
+    font-size: 0.7em;
+  }
+  .tasksform {
+    font-size: 0.6em;
+  }
+}
+
+@media (max-width: 700px) {
+  .taskslist {
+    font-size: 0.4em;
+  }
+
+  .maintitle {
+    font-size: 0.6em;
+  }
+  .tasksform {
+    font-size: 0.5em;
+  }
+}
+
+@media (max-width: 525px) {
+  .taskslist {
+    font-size: 0.4em;
+  }
+
+  .maintitle {
+    font-size: 0.4em;
+  }
+  .tasksform {
+    font-size: 0.4em;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

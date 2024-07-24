@@ -1,0 +1,7 @@
+Flask
+Flask-CORS
+Flask-Migrate
+requests
+Flask-SQLAlchemy
+python-decouple
+Werkzeug
