@@ -39,3 +39,4 @@ Step 8: If you experienced any issues, you might need to download node, python, 
   - CSS
 - Technologies
   - Git Bash
+  - Vite
