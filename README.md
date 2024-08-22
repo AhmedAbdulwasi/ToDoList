@@ -8,7 +8,7 @@ I started this project a few months ago to dive more into Definition functions i
 
 This week, I just got back to Python because one of my Computer Science courses used Python and said why not fix and finish this project so I did. Learned file operations, and definition functions.
 
-**FULL-STACK UPDATE:** I realized that I have never done a FULL-STACK project before and I wanted to get a glimpse at what full-stack really is. Flask was one of the frameworks I wanted to learn and expand as well as React.js and so I thought of updating this project as it comes with the main RESTful API methods which are GET, POST, PATCH, and DELETE. While I've enjoyed React.js and the frontend aspect of it, I came to realize that I like the backend of things. I've found it much funner to create models, API endpoints, and just using python in general rather than creating the frontend of the website using React.js but it was still great nonetheless.
+**FULL-STACK UPDATE:** I realized that I have never done a FULL-STACK project before and I wanted to get a glimpse at what full-stack really is. Flask was one of the frameworks I wanted to learn and expand as well as React.js and so I thought of updating this project as it comes with the main RESTful API methods which are GET, POST, PATCH, and DELETE.
 
 ## How To Access The Website
 Step 1: Download the zip file and unzip it in a new folder that you created for the zip file.
