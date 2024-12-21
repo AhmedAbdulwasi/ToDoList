@@ -51,11 +51,10 @@ def create_app(config_name='development'):
         if not task:
             return jsonify({"message":"No task exists with that task id"}),404
         else:
-            data = request.json
-            task.subject = data.get("subject", task.subject)
-            task.description = data.get("description", task.description)
-            task.completed = data.get("completed", task.completed)
-            date_str = data.get("date")
+            task.subject = request.json.get("subject", task.subject)
+            task.description = request.json.get("description", task.description)
+            task.completed = request.json.get("completed", task.completed)
+            date_str = request.json.get("date")
 
             try:
                 task.date = datetime.fromisoformat(date_str)
